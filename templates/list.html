@@ -1,0 +1,50 @@
+<!doctype html>
+<link rel="stylesheet" media="screen" href="/static/csik_stole_me.css">
+
+<body>
+	<header>
+		<h1>Parishes of Uganda</h1>
+	</header>
+	
+	<div id="container">
+		<table>	
+			<tr>
+				<th>
+					Parish Name
+				</th>
+				<th>
+					Hectares
+				</th>
+			</tr>	
+		{% for parish in parishes_for_page %}
+			<tr class="{{ loop.cycle('odd', 'even') }}">
+				<td><a href='/detail/{{ parish }}'>{{ parishes[parish].LABEL_P }}</a></td>
+				<td><a href='/detail/{{ parish }}'>{{ parishes[parish].HECTARES }}</a></td>
+			</tr>
+		{% endfor %}
+		</table>
+		
+	
+		  <div class=pagination>
+		  {%- for page in pagination.iter_pages() %}
+			{% if page %}
+			  {% if page != pagination.page %}
+				<a href="{{ url_for_other_page(page) }}">{{ page }}</a>
+			  {% else %}
+				<strong>{{ page }}</strong>
+			  {% endif %}
+			{% else %}
+			  <span class=ellipsis>…</span>
+			{% endif %}
+		  {%- endfor %}
+		  {% if pagination.has_next %}
+			<a href="{{ url_for_other_page(pagination.page + 1)
+			  }}">Next &raquo;</a>
+		  {% endif %}
+		  </div>
+		
+	</div>
+
+</body>
+
+

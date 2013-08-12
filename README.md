@@ -1,2 +1,0 @@
-dollars_democracy
-=================

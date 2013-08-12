@@ -1,0 +1,20 @@
+<!doctype html>
+<link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css">
+
+
+<body>
+	<header>
+		<a href = '/list/' class='back'>Back</a>
+		<h1>Details of {{ detail.LABEL_P }} province</h1>
+	</header>
+	<div id="container">
+		<table>	
+		{% for key, value in detail.iteritems() %}
+			<tr class="{{ loop.cycle('odd', 'even') }}">
+				<td class="strong">{{ key }}:</td>
+				<td>{{ value }}</td>
+			</tr>
+		{% endfor %}
+		</table>
+	</div>
+</body>
