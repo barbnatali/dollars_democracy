@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block title %}Dollars in Democracy | Campaign Money{% endblock %}
+{% block header %}The Problem with Campaign Contributions{% endblock %}
+{% block content %}
+	{% if politician != 'None' %}
+      <h2>{{ politician }}?</h2>
+    {% else %}
+      <p>Please select a location and politician from above.</p>
+    {% endif %}
+{% endblock %}
+
+	

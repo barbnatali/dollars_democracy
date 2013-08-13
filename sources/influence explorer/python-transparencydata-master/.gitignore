@@ -1,0 +1,4 @@
+*.pyc
+ignored.py
+.project
+.pydevproject

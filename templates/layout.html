@@ -36,10 +36,16 @@
                   <div class="nav-collapse collapse">
                     <ul class="nav">
                       <li class="">
-                        <a href="./index.html">Home</a>
+                        <a href="#">Campaign Finance</a>
                       </li>
                       <li class="">
-                        <a href="#">Get started</a>
+                        <a href="#">Lobbying</a>
+                      </li>
+                      <li class="">
+                        <a href="#">Organizations</a>
+                      </li>
+                      <li class="last">
+                        <a href="#">Take Action</a>
                       </li>
                     </ul>
                   </div>
@@ -49,11 +55,11 @@
         {% endblock %}
         
         <header>
-        	<div class="container">
-            	<div class="inner-container">
-                    {% block header %}
-                        <h1>Definition of Democracy</h1>
-                    {% endblock %}
+        	<div class="inner-header">
+        		<div class="container">
+                	<h1>
+            			{% block header %}Why Remove Private Money from Politics?{% endblock %}
+                    </h1>
                 </div>
             </div>
         </header>
@@ -65,7 +71,7 @@
         <footer class="footer">
         	<div class="container">
                 {% block footer %}
-                    © Dollars in Democracy
+                    © Dollars in Democracy | <a href="http://wwww.barbaranatali.com">Created by Barbara Natali</a>
                 {% endblock %}
             </div>
         </footer>

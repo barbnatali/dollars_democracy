@@ -35,18 +35,21 @@
 /* WOFF-capable browsers */
 @font-face {font-family: TisaWeb; src: url("../fonts/TisaWeb.woff") format("woff");}
 
-body {font-family: 'ProximaNovaRgRegular', sans-serif; background:#f2f2f2;}
-h1, h2, h3, h4, h5 {font-weight:normal;}
-p {font-family:TisaWeb-Light, serif; color:#999; font-size:15px; line-height:27px;}
+html {background:none;}
+body {font-family: 'ProximaNovaRgRegular', sans-serif; background:#f2f2f2; line-height:1.35em;}
+strong {font-weight:normal; font-family: 'ProximaNovaRgBold', sans-serif;}
+h1, h2, h3, h4, h5 {font-weight:normal; font-family:TisaWeb-Light, serif; color:#333;}
+p {color:#777;}
 .container {max-width:960px; margin:0 auto;}
-a {color:#8dc63f;}
-a:hover {color:#70a526; text-decoration:none;}
+a {color:#c1272d;}
+a:hover {color:#c1272d; text-decoration:none;}
+ul, ol {color:#777;}
 
 
 /* Header */
 /* ------------------- */
 
-header {margin-top:50px;}
+header {margin-top: 30px; padding-top: 20px;}
 .footer {
 	text-align: center;
 	padding: 10px 0;
@@ -57,5 +60,9 @@ header {margin-top:50px;}
 	color:#999;
 }
 .navbar .brand {font-size:21px; color:#ccc;}
-.tagline {float:left; padding: 14px 20px 10px 0; color:#888;}
-.navbar .nav {float:right; margin-top:5px;}
+.tagline {float:left; padding: 14px 0 10px 0; color:#888;}
+.navbar .nav {float:right; margin-top:5px; margin-right:0; padding-left: 0; font-size:13px;}
+header .inner-header {background:#fff; margin:20px; padding: 1px 30px;}
+header .inner-header h1 {font-size:40px; font-family:TisaWeb-Light, serif;}
+.navbar .nav > li > a {padding:10px;}
+.navbar .nav li.last a {padding-right:0;}
