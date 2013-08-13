@@ -15,8 +15,23 @@
         {% endfor %}
      </table>
     {% else %}
-      <p>Please select a location and politician from above.</p>
+		<p>Please select a location and politician from above.</p>
     {% endif %}
+    
+    <table>
+      	<tr>
+        	<td><h2>Industry</h2></td>
+            <td><h2>Amount</h2></td>
+        </tr>
+        {% for industry in top_industries %}
+            <tr>
+                <td><strong>{{industry['name']}}</strong></td>
+                <td>{{industry['amount']}}</td>
+            </tr>
+        {% endfor %}
+     </table>
+     <p>includes contributions from an organization’s employees, their family members and its political action committee</p>
+
 {% endblock %}
 
 	

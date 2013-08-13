@@ -60,11 +60,13 @@ def campaign(politician=None):
 		
 		# influence explorer
 		politician_info = ie.entities.search(politician)[0]
-		return render_template('campaign.html', politician=politician_info)
+		id = politician_info['id']
+		top_industries = ie.pol.industries(id, limit=10)
+		return render_template('campaign.html', politician=politician_info, top_industries=top_industries)
 	
 	
 @app.route('/choose_politician')
-def location():
+def choose_politician():
 	if 'location' in request.args:
 		location = request.args.get('location', '')
 	else:
@@ -80,6 +82,12 @@ def location():
 		legislators = openstates.legislators(state=location)
 	return render_template('choose_politician.html', politicians=legislators)
 	
+
+@app.route('/lobbying')
+def lobbying():
+	return render_template('choose_politician.html')
+
+
 
 if __name__ == '__main__':
 	app.run(debug=True)
