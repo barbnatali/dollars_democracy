@@ -4,9 +4,11 @@ from math import ceil
 from flask import redirect
 from flask import request, url_for
 from collections import OrderedDict
+import xmltodict
+import requests
 import keys
 
-# open secrets 
+# opensecrets 
 # ----------------
 # download and install https://code.google.com/p/python-crpapi/downloads/list
 # docs - https://www.opensecrets.org/resources/create/api_doc.php
@@ -22,13 +24,16 @@ from sunlight import openstates
 from sunlight import congress
 sunlight.config.API_KEY = keys.sunlight_key
 
-# Influence Explore/Transparency Data
+# Transparency Data
 # ----------------
 # python setup.py install - from python-transparencydata-master
 from transparencydata import TransparencyData
 td = TransparencyData(keys.sunlight_key)
 
-
+# Influence Explorer
+# ----------------
+from influenceexplorer import InfluenceExplorer
+ie = InfluenceExplorer(keys.sunlight_key)
 
 
 app = Flask(__name__)
@@ -46,7 +51,15 @@ def campaign(politician=None):
 	if politician == None:
 		return render_template('choose_location.html')
 	else:
-		politician_info = congress.legislators(lastname=politician)[0]
+		# congress
+		# politician_info = congress.legislators(lastname=politician)[0]
+		#td.contributions(recipient_ft=politician)
+		
+		# openstates
+		# politician_info = sunlight.openstates.legislators(last_name=politician)
+		
+		# influence explorer
+		politician_info = ie.entities.search(politician)[0]
 		return render_template('campaign.html', politician=politician_info)
 	
 	
@@ -56,7 +69,15 @@ def location():
 		location = request.args.get('location', '')
 	else:
 		location = 'ca'
-	legislators = congress.legislators(state=location)
+ 	if location.isdigit():
+ 		# Congress API doesn't have as many entries
+ 		url = 'http://congress.api.sunlightfoundation.com/legislators/locate?apikey='+str(keys.sunlight_key)+'&zip='+str(location)
+ 		r = requests.get(url)
+ 		r = r.json()
+ 		legislators = r['results']
+	else:
+		# openstates
+		legislators = openstates.legislators(state=location)
 	return render_template('choose_politician.html', politicians=legislators)
 	
 

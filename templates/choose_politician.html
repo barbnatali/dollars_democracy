@@ -1,12 +1,22 @@
 {% extends "layout.html" %}
 {% block title %}Dollars in Democracy | Campaign Money{% endblock %}
+{% block body_class %}choose-politician{% endblock %}
 {% block header %}The Problem with Campaign Contributions{% endblock %}
 {% block content %}
+
 	<table>
+    	<tr>
+        	<th></th>
+            <th>Name</th>
+            <th>Party</th>
+            <th>District</th>
+        </tr>
         {% for politician in politicians %}
             <tr>
-                <td><a href="/campaign/{{ politician['last_name'] }}">{{ politician['first_name'] }} {{ politician['last_name'] }}</a>
-                </td>
+            	<td class="thumb"><div><img src="{{ politician['photo_url'] }}" width="100" /></div></td>
+                <td><a href="/campaign/{{ politician['last_name'] }}">{{ politician['first_name'] }} {{ politician['last_name'] }}</a></td>
+                <td>{{ politician['party'] }}</td>
+                <td>{{ politician['district'] }}</td>
             </tr>
         {% endfor %}
      </table>

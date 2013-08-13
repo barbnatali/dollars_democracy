@@ -66,3 +66,12 @@ header .inner-header {background:#fff; margin:20px; padding: 1px 30px;}
 header .inner-header h1 {font-size:40px; font-family:TisaWeb-Light, serif;}
 .navbar .nav > li > a {padding:10px;}
 .navbar .nav li.last a {padding-right:0;}
+
+
+/* Choose Politician */
+/* ------------------- */
+.choose-politician .thumb div {width:50px; height:50px; overflow:hidden;}
+.choose-politician .thumb img {width:50px;}
+.choose-politician th {text-align:left;}
+.choose-politician td, .choose-politician th {padding:1px 10px; border-bottom:1px solid #dedede;}
+.choose-politician td.thumb {padding-left:0;}
