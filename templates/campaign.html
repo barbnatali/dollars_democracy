@@ -3,7 +3,17 @@
 {% block header %}The Problem with Campaign Contributions{% endblock %}
 {% block content %}
 	{% if politician != 'None' %}
-      <h2>{{ politician }}?</h2>
+      <table>
+      	<tr>
+        	<td><h2>{{ politician['firstname']}} {{ politician['lastname']}} </h2></td>
+        </tr>
+        {% for key, value in politician.iteritems() %}
+            <tr>
+                <td><strong>{{key}}</strong></td>
+                <td>{{value}}</td>
+            </tr>
+        {% endfor %}
+     </table>
     {% else %}
       <p>Please select a location and politician from above.</p>
     {% endif %}

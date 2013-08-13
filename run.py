@@ -46,31 +46,20 @@ def campaign(politician=None):
 	if politician == None:
 		return render_template('choose_location.html')
 	else:
-		politician = congress.legislators(lastname=politician)[0]
-	return render_template('campaign.html', politician=str(politician))
+		politician_info = congress.legislators(lastname=politician)[0]
+		return render_template('campaign.html', politician=politician_info)
 	
 	
 @app.route('/choose_politician')
 def location():
-    location = request.args.get('location', '')
-    legislators = openstates.legislators(state=location)
-    html = ''
-    for legislator in legislators:
-    	first = legislator['first_name']
-    	last = legislator['last_name']
-    	html += '<p>'
-    	html += first.encode('utf8')
-    	html += ' '
-    	html += last.encode('utf8')
-    	html += '</p>'
-    return render_template('choose_politician.html', politicians=str(html))
-
-
-#@app.route('/open_secrets/')
-#def open_secrets():
-#	return str(CRP.candContrib.get(cid='N00007360',cycle='2010'))
+	if 'location' in request.args:
+		location = request.args.get('location', '')
+	else:
+		location = 'ca'
+	legislators = congress.legislators(state=location)
+	return render_template('choose_politician.html', politicians=legislators)
 	
 
 if __name__ == '__main__':
-    app.run(debug=True)
+	app.run(debug=True)
 

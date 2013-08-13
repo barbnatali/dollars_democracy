@@ -2,7 +2,13 @@
 {% block title %}Dollars in Democracy | Campaign Money{% endblock %}
 {% block header %}The Problem with Campaign Contributions{% endblock %}
 {% block content %}
-
-     {{ politicians }}
+	<table>
+        {% for politician in politicians %}
+            <tr>
+                <td><a href="/campaign/{{ politician['last_name'] }}">{{ politician['first_name'] }} {{ politician['last_name'] }}</a>
+                </td>
+            </tr>
+        {% endfor %}
+     </table>
 
 {% endblock %}
