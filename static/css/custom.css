@@ -103,13 +103,17 @@ header .inner-header h1 {font-size:30px; font-family:TisaWeb-Light, serif;}
 /* Page Specific */
 /* ------------------- */
 
+.home .broken-democracy {display:none;}
+.home .animate:hover .broken-democracy {display:block;}
+.home .animate:hover .democracy {display:none;}
+
 .choose-politician .thumb div {width:50px; height:50px; overflow:hidden;}
 .choose-politician .thumb img {width:50px;}
 .choose-politician td.thumb {padding-left:0;}
 
 .choose-location .content h2 {margin-top:30px; margin-bottom:10px;}
 .choose-location .content label {margin:10px 0; font-size:15px; }
-.choose-location .content strong {color:#c1272d;}
+.choose-location .content strong {color:#333;}
 .choose-location .content input[type="submit"] {padding:5px 10px; border-radius:3px; background:#fff; border:1px solid #ccc; margin-bottom: 10px;}
 .choose-location .content input[type="submit"]:hover {background:#eee;}
 .choose-location .content input[type="text"] {float:left; margin-right:5px; }
