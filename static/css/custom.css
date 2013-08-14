@@ -42,7 +42,7 @@ h1, h2, h3, h4, h5 {font-weight:normal; font-family:TisaWeb-Light, serif; color:
 p {color:#777;}
 .container {max-width:960px; margin:0 auto;}
 a {color:#c1272d;}
-a:hover {color:#c1272d; text-decoration:none;}
+a:hover {color:#a51c27; text-decoration:none;}
 ul, ol {color:#777;}
 
 table {margin-bottom:50px;}
@@ -54,15 +54,16 @@ td.center, th.center {padding-left:20px; text-align:right;}
 .right {text-align:right;}
 
 .first-h3 {margin-top:40px;}
+#content {min-height:400px;}
 
 
 /* Header */
 /* ------------------- */
 
 header {margin-top: 30px; padding-top: 20px;}
-.navbar .brand {font-size:21px; color:#ccc; font-family: 'ProximaNovaRgBold', sans-serif; margin-top:1px;}
-.tagline {float:left; padding: 14px 0 10px 0; color:#888;}
-.navbar .nav {float:right; margin-top:5px; margin-right:0; padding-left: 0; font-size:13px;}
+.navbar .brand {font-size:18px; color:#eee; margin-top:2px; text-transform:uppercase; padding-right:7px;}
+.tagline {float:left; padding: 13px 0 10px 0; color:#888;}
+.navbar .nav {float:right; margin-top:4px; margin-right:0; padding-left: 0; font-size:13px;}
 header .inner-header {background:#fff; margin:20px; padding: 1px 30px;}
 header .inner-header h1 {font-size:30px; font-family:TisaWeb-Light, serif;}
 .navbar .nav > li > a {padding:10px;}
@@ -101,3 +102,13 @@ header .inner-header h1 {font-size:30px; font-family:TisaWeb-Light, serif;}
 .choose-politician .thumb div {width:50px; height:50px; overflow:hidden;}
 .choose-politician .thumb img {width:50px;}
 .choose-politician td.thumb {padding-left:0;}
+
+.choose-location .content h2 {margin-top:30px; margin-bottom:10px;}
+.choose-location .content label {margin:10px 0; font-size:15px; }
+.choose-location .content strong {color:#c1272d;}
+.choose-location .content input[type="submit"] {padding:5px 10px; border-radius:3px; background:#fff; border:1px solid #ccc; margin-bottom: 10px;}
+.choose-location .content input[type="submit"]:hover {background:#eee;}
+.choose-location .content input[type="text"] {float:left; margin-right:5px; }
+.choose-location .content small {display:block; color:#777;}
+
+.take_action .content h3 {border-bottom:1px solid #ccc; margin-top:35px; }

@@ -3,20 +3,46 @@
 {% block body_class %}choose-politician campaign{% endblock %}
 {% block header %}The Problem with Campaign Contributions{% endblock %}
 {% block content %}
-
+<h2>Executive Branch</h2>
+	<table>
+        <tr>
+            <th>Name</th>
+            <th>Party</th>
+        </tr>
+        <tr>
+            <td><a href="/campaign/obama">Barack Obama</a></td>
+            <td>Democratic</td>
+        </tr>
+        <tr>
+            <td><a href="/campaign/biden">Joseph R. Biden</a></td>
+            <td>Democratic</td>
+        </tr>
+	</table>
+<h2>Legislative Branch</h2>
 	<table>
     	<tr>
-        	<th></th>
+            <th>Name</th>
+            <th>Party</th>
+        </tr>
+        {% for member in congress %}
+            <tr>
+                <td><a href="/campaign/{{ member['last_name'] }}">{{ member['first_name'] }} {{ member['last_name'] }}</a></td>
+                <td>{{ member['party'] }}</td>
+            </tr>
+        {% endfor %}
+     </table>
+<h2>State</h2>     
+     	<table>
+    	<tr>
             <th>Name</th>
             <th>Party</th>
             <th>District</th>
         </tr>
-        {% for politician in politicians %}
+        {% for legislator in legislators %}
             <tr>
-            	<td class="thumb"><div><img src="{{ politician['photo_url'] }}" width="100" /></div></td>
-                <td><a href="/campaign/{{ politician['last_name'] }}">{{ politician['first_name'] }} {{ politician['last_name'] }}</a></td>
-                <td>{{ politician['party'] }}</td>
-                <td>{{ politician['district'] }}</td>
+                <td><a href="/campaign/{{ legislator['last_name'] }}">{{ legislator['first_name'] }} {{ legislator['last_name'] }}</a></td>
+                <td>{{ legislator['party'] }}</td>
+                <td>{{ legislator['district'] }}</td>
             </tr>
         {% endfor %}
      </table>

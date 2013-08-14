@@ -1,11 +1,14 @@
 {% extends "layout.html" %}
 {% block title %}Dollars in Democracy | Campaign Money{% endblock %}
 {% block header %}The Problem with Campaign Contributions{% endblock %}
-{% block body_class %}campaign{% endblock %}
+{% block body_class %}campaign choose-location{% endblock %}
 {% block content %}
-	<form action="/choose_politician" method="get" name="location">
-    	<label>Enter a State Abbreviation or Zip</label>
-        <input name="location" type="text" />
+<p>There are multiple problems with campaign contributions. First of all our <strong>politicians are spending the majority of their time fundraising</strong> instead of focusing on doing their jobs. Secondly, <strong>private money comes with strings attached</strong> which means are politicians are no longer working for the people. Their working for private interests.</p>
+<hr />
+<h2>How much are your politicians indebted to private money? </h2>
+<form action="/choose_politician" method="get" name="location">
+		<label>Enter your zip code below to find out</label>
+    	<input name="location" type="text" placeholder="Zip Code" />
         <input name="submit" type="submit" />
     </form>
 {% endblock %}
