@@ -4,16 +4,17 @@
 {% block body_class %}campaign{% endblock %}
 {% block content %}
 	{% if politician != 'None' %}
+    <h2>{{ politician['name']}}</h2>
       <table>
-      	<tr>
-        	<td><h2>{{ politician['firstname']}} {{ politician['lastname']}} </h2></td>
+        <tr>
+        	<td class="table_head">Total Received</td>
+            <td class="number">{{politician['total_received']| format_currency}}</td>
         </tr>
-        {% for key, value in politician.iteritems() %}
-            <tr>
-                <td><strong>{{key}}</strong></td>
-                <td>{{value}}</td>
-            </tr>
-        {% endfor %}
+        <tr>
+        	<td class="table_head">State</td>
+            <td>{{politician['state']}}</td>
+        </tr>
+        
      </table>
     {% else %}
 		<p>Please select a location and politician from above.</p>
@@ -26,8 +27,8 @@
         </tr>
         {% for industry in top_industries %}
             <tr>
-                <td><strong>{{industry['name']}}</strong></td>
-                <td>{{industry['amount'] | format_currency}}</td>
+                <td>{{industry['name']}}</td>
+                <td class="number">{{industry['amount'] | format_currency}}</td>
             </tr>
         {% endfor %}
      </table>

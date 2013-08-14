@@ -54,7 +54,7 @@ td.center, th.center {padding-left:20px; text-align:right;}
 .right {text-align:right;}
 
 .first-h3 {margin-top:40px;}
-#content {min-height:400px;}
+#content {min-height:400px; background:url(../img/us.png) no-repeat top center;}
 
 
 /* Header */
@@ -74,6 +74,9 @@ header .inner-header h1 {font-size:30px; font-family:TisaWeb-Light, serif;}
 .organizations .navbar .organizations a {color:#fff;}
 .super_pacs .navbar .super_pacs a {color:#fff;}
 .take_action .navbar .take_action a {color:#fff;}
+
+.cta {padding:5px 10px; color:#fff; background:#c1272d; border-radius:3px; float:right; margin-top:30px;}
+.cta:hover {color:#fff; background:#a51c27;}
 
 /* Sidebar */
 /* ------------------- */
@@ -97,8 +100,9 @@ header .inner-header h1 {font-size:30px; font-family:TisaWeb-Light, serif;}
 .footer-left {float:left;}
 .footer-right {float:right; min-width:140px;}
 
-/* Choose Politician */
+/* Page Specific */
 /* ------------------- */
+
 .choose-politician .thumb div {width:50px; height:50px; overflow:hidden;}
 .choose-politician .thumb img {width:50px;}
 .choose-politician td.thumb {padding-left:0;}
