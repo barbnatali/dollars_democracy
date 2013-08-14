@@ -6,6 +6,7 @@ from flask import request, url_for
 from collections import OrderedDict
 import xmltodict
 import requests
+import unicodedata
 import keys
 
 # opensecrets 
@@ -38,6 +39,11 @@ ie = InfluenceExplorer(keys.sunlight_key)
 
 app = Flask(__name__)
 
+@app.template_filter('format_currency')
+def format_currency(value):
+	value = float(value)
+	return "${:,.2f}".format(value)
+    
 
 @app.route('/')
 def index():
@@ -85,15 +91,20 @@ def choose_politician():
 
 @app.route('/lobbying')
 def lobbying():
-	top_10 = ie.entities.top_n_lobbyist_bundlers(limit=10)
-	return render_template('lobbying.html', top_10=top_10)
-
-
-@app.route('/organizations_industries')
-def organizations():
-	top_orgs = ie.entities.top_n_organizations(limit=15)
+	#top_10 = ie.entities.top_n_lobbyist_bundlers(limit=10)
+	top_orgs = ie.entities.top_n_organizations(limit=15, cycle='-1')
 	top_industries = ie.entities.top_n_industries(limit=15)
-	return render_template('organizations_industries.html', top_orgs=top_orgs, top_industries=top_industries)
+	return render_template('lobbying.html', top_orgs=top_orgs, top_industries=top_industries)
+
+
+@app.route('/organizations')
+def organizations():
+	return render_template('organizations.html')
+	
+	
+@app.route('/super_pacs')
+def super_pacs():
+	return render_template('super_pacs.html')
 
 
 if __name__ == '__main__':

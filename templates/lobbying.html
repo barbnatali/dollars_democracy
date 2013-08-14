@@ -1,9 +1,130 @@
 {% extends "layout.html" %}
 {% block title %}Dollars in Democracy | Lobbying{% endblock %}
 {% block body_class %}lobbying{% endblock %}
-{% block header %}The Problem with Lobbying{% endblock %}
+{% block header %}Lobbying{% endblock %}
 {% block content %}
+<p> Lobbying - the act of attempting to influence decisions made by officials in the government, most often legislators or members of regulatory agencies.</p>
+<h2>Top Spenders for 2013</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Lobbying Client</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>US Chamber of Commerce</td>
+      <td class="number"class="number">$35,890,000</td>
+    </tr>
+    <tr>
+      <td>National Assn of Realtors</td>
+      <td class="number"class="number">$17,682,290</td>
+    </tr>
+    <tr>
+      <td>Blue Cross/Blue Shield</td>
+      <td class="number"class="number">$11,684,150</td>
+    </tr>
+    <tr>
+      <td>Comcast Corp</td>
+      <td class="number">$9,950,000</td>
+    </tr>
+    <tr>
+      <td>General Electric</td>
+      <td class="number">$9,920,000</td>
+    </tr>
+    <tr>
+      <td>American Hospital Assn</td>
+      <td class="number">$9,830,249</td>
+    </tr>
+    <tr>
+      <td>Pharmaceutical Rsrch &amp; Mfrs of America</td>
+      <td class="number">$9,745,000</td>
+    </tr>
+    <tr>
+      <td>American Medical Assn</td>
+      <td class="number">$9,365,000</td>
+    </tr>
+    <tr>
+      <td>Northrop Grumman</td>
+      <td class="number">$9,350,000</td>
+    </tr>
+    <tr>
+      <td>National Cable &amp; Telecommunications Assn</td>
+      <td class="number">$8,830,000</td>
+    </tr>
+    <tr>
+      <td>AT&amp;T Inc</td>
+      <td class="number">$8,000,000</td>
+    </tr>
+    <tr>
+      <td>Exxon Mobil</td>
+      <td class="number">$7,900,000</td>
+    </tr>
+    <tr>
+      <td>Google Inc </td>
+      <td class="number">$7,780,000</td>
+    </tr>
+    <tr>
+      <td>Lockheed Martin</td>
+      <td class="number">$7,636,496</td>
+    </tr>
+    <tr>
+      <td>Boeing Co</td>
+      <td class="number">$7,620,000</td>
+    </tr>
+    <tr>
+      <td>National Assn of Broadcasters</td>
+      <td class="number">$7,390,000</td>
+    </tr>
+    <tr>
+      <td>United Technologies</td>
+      <td class="number">$7,080,373</td>
+    </tr>
+    <tr>
+      <td>Verizon Communications</td>
+      <td class="number">$7,028,000</td>
+    </tr>
+    <tr>
+      <td>Southern Co</td>
+      <td class="number">$6,380,000</td>
+    </tr>
+    <tr>
+      <td>Dow Chemical</td>
+      <td class="number">$6,095,000</td>
+    </tr>
+  </tbody>
+</table>
 
-	{{ top_10 }}
+
+ <h2>Top Contributing Organizations</h2>
+      <table>
+      	<tr>
+        	<th>Organization</th>
+            <th>Amount</th>
+        </tr>
+        {% for org in top_orgs %}
+            <tr>
+                <td>{{org['name']}}</td>
+                <td class="number">{{org['amount'] | format_currency}}</td>
+            </tr>
+        {% endfor %}
+     </table>
+     
+      <h2>Top Contributing Industries</h2>
+      <table>
+      	<tr>
+        	<th>Industry</th>
+            <th>Amount</th>
+        </tr>
+        {% for industry in top_industries %}
+            <tr>
+                <td>{{industry['name']}}</td>
+                <td class="number">{{industry['amount'] | format_currency}}</td>
+            </tr>
+        {% endfor %}
+     </table>
+
+
 
 {% endblock %}
