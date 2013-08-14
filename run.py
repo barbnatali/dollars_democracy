@@ -36,6 +36,11 @@ ie = InfluenceExplorer(keys.sunlight_key)
 
 app = Flask(__name__)
 
+# @app.template_filter('format_currency')
+# def format_currency(value):
+# 	value = float(value)
+# 	return "${:,.2f}".format(value)
+	
 @app.template_filter('format_currency')
 def format_currency(value):
 	value = float(value)
@@ -67,8 +72,8 @@ def index():
 
 #http://127.0.0.1:5000/campaign/pelosi
 @app.route('/campaign/')
-@app.route('/campaign/<politician>')
-def campaign(politician=None):
+@app.route('/campaign/<politician>/<salary>')
+def campaign(politician=None, salary=None):
 	if politician == None:
 		return render_template('choose_location.html')
 	else:
@@ -83,7 +88,7 @@ def campaign(politician=None):
 		politician_info = ie.entities.search(politician)[0]
 		id = politician_info['id']
 		top_industries = ie.pol.industries(id, limit=10)
-		return render_template('campaign.html', politician=politician_info, top_industries=top_industries)
+		return render_template('campaign.html', salary=salary, politician=politician_info, top_industries=top_industries)
 	
 	
 @app.route('/choose_politician')
@@ -92,16 +97,21 @@ def choose_politician():
 		location = request.args.get('location', '')
 	else:
 		location = '91101'
-	state = get_state_from_zip(location)
+	if location.isdigit():
+		state = get_state_from_zip(location)
 
-	# Congress API doesn't have as many entries
-	url = 'http://congress.api.sunlightfoundation.com/legislators/locate?apikey='+str(keys.sunlight_key)+'&zip='+str(location)
-	r = requests.get(url)
-	r = r.json()
-	congress = r['results']
+		# Congress API doesn't have as many entries
+		url = 'http://congress.api.sunlightfoundation.com/legislators/locate?apikey='+str(keys.sunlight_key)+'&zip='+str(location)
+		r = requests.get(url)
+		r = r.json()
+		congress = r['results']
 	
-	# openstates
-	legislators = openstates.legislators(state=state)
+		# openstates
+		legislators = openstates.legislators(state=state)
+	else:
+		# openstates
+		legislators = openstates.legislators(state=location)
+		congress=0
 				
 	return render_template('choose_politician.html', legislators=legislators, congress=congress)
 	

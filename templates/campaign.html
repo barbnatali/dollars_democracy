@@ -5,34 +5,35 @@
 {% block content %}
 	{% if politician != 'None' %}
     <h2>{{ politician['name']}}</h2>
-      <table>
-        <tr>
-        	<td class="table_head">Total Received</td>
-            <td class="number">{{politician['total_received']| format_currency}}</td>
-        </tr>
-        <tr>
-        	<td class="table_head">State</td>
-            <td>{{politician['state']}}</td>
-        </tr>
-        
-     </table>
-    {% else %}
-		<p>Please select a location and politician from above.</p>
+    <h3>Campaign Contributions: <span class="total-received">{{politician['total_received']| format_currency}}</span></h3>
+
     {% endif %}
-    
-    <table>
-      	<tr>
-        	<td><h2>Industry</h2></td>
-            <td><h2>Amount</h2></td>
-        </tr>
-        {% for industry in top_industries %}
+    <hr />
+    <div class="top-industries">
+        <h3>Top Industries</h3>
+        <p>The top industries contributing to {{ politician['name']}}'s campaign</p> 
+        <table>
             <tr>
-                <td>{{industry['name']}}</td>
-                <td class="number">{{industry['amount'] | format_currency}}</td>
+                <th>Industry</th>
+                <th class="number">Amount</th>
             </tr>
-        {% endfor %}
-     </table>
-     <p>includes contributions from an organization’s employees, their family members and its political action committee</p>
+            {% for industry in top_industries %}
+                <tr>
+                    <td>{{industry['name']}}</td>
+                    <td class="number">{{industry['amount'] | format_currency}}</td>
+                </tr>
+            {% endfor %}
+         </table>
+         <h4>What are these industries expecting in return?</h4>
+     </div>
+     
+   {% if salary != '0' %}
+	<div class="salary_from_taxpayer">
+    	<h3>Taxpayer Contributions</h3>
+		<div class="salary">{{ salary | format_currency }}</div>
+        <p>Taxpayers contributed a salary of {{ salary | format_currency }} to {{ politician['name']}} last year. How does that compare to campaign contributions? Who do you think {{ politician['name']}} owes more?</p> 
+    </div>
+	{% endif %}
 
 {% endblock %}
 
