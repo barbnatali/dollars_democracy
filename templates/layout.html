@@ -36,7 +36,7 @@
                   <div class="nav-collapse collapse">
                     <ul class="nav">
                       <li class="campaign">
-                        <a href="/campaign">Campaign Finance</a>
+                        <a href="/campaign">Campaigns</a>
                       </li>
                       <li class="lobbying">
                         <a href="/lobbying">Lobbying</a>
@@ -68,11 +68,30 @@
         </header>
         
         <div class="container" id="content">
-        	{% block content %}{% endblock %}
+        	<div class="row">
+    			<div class="span9 content">
+        			{% block content %}{% endblock %}
+                </div>
+                <div class="span3 sidebar">
+                    {% block sidebar %}
+                    	<h1>Who is Really Paying?</h1>
+                        <hr />
+                        <h4>Unlimited Super Pac Money</h4>
+                        <h2>{{ superpac }}</h2>
+                        <h5>Amount spent during the 2012 election by super pacs and shadow groups</h5>
+                        <hr />
+                        <h4>The Cost of an Election</h4>
+                        <h2>$6,300,000,000</h2>
+                        <h5>Spending by candidates, parties, and issue groups for the 2012 election.</h5>
+                        
+                    {% endblock %}    
+                </div>
+             </div>
         </div>
         
         <footer class="footer">
         	<div class="container">
+            	
                 {% block footer %}
         			<div class="footer-left">© Dollars in Democracy | Created by <a href="http://wwww.barbaranatali.com" target="_blank">Barbara Natali</a>. Data from the <a href="http://sunlightfoundation.com/api/" target="_blank">Sunlight Foundation API</a> and <a href="https://www.opensecrets.org" target="_blank">Open Secrets</a> </div>
         		{% endblock %} 
@@ -87,9 +106,9 @@
                         <a class="addthis_counter addthis_bubble_style"></a>
                     </div>
                 </div>
-
+			
         </footer>
-
+        
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="/static/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
         <script src="/static/js/plugins.js"></script>
@@ -102,7 +121,7 @@
             g.src='//www.google-analytics.com/ga.js';
             s.parentNode.insertBefore(g,s)}(document,'script'));
         </script>
-        
+          
         <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-520afffc42b03203"></script>
     </body>
 </html>

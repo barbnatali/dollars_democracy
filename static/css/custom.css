@@ -60,11 +60,11 @@ td.center, th.center {padding-left:20px; text-align:right;}
 /* ------------------- */
 
 header {margin-top: 30px; padding-top: 20px;}
-.navbar .brand {font-size:21px; color:#ccc;}
+.navbar .brand {font-size:21px; color:#ccc; font-family: 'ProximaNovaRgBold', sans-serif; margin-top:1px;}
 .tagline {float:left; padding: 14px 0 10px 0; color:#888;}
 .navbar .nav {float:right; margin-top:5px; margin-right:0; padding-left: 0; font-size:13px;}
 header .inner-header {background:#fff; margin:20px; padding: 1px 30px;}
-header .inner-header h1 {font-size:40px; font-family:TisaWeb-Light, serif;}
+header .inner-header h1 {font-size:30px; font-family:TisaWeb-Light, serif;}
 .navbar .nav > li > a {padding:10px;}
 .navbar .nav li.last a {padding-right:0;}
 
@@ -73,6 +73,12 @@ header .inner-header h1 {font-size:40px; font-family:TisaWeb-Light, serif;}
 .organizations .navbar .organizations a {color:#fff;}
 .super_pacs .navbar .super_pacs a {color:#fff;}
 .take_action .navbar .take_action a {color:#fff;}
+
+/* Sidebar */
+/* ------------------- */
+.sidebar h1 {font-size:20px;}
+.sidebar h4, .sidebar h2, .sidebar h5 {margin:5px 0;}
+.sidebar h4 {font-family: 'ProximaNovaRgBold', sans-serif; text-transform:uppercase; font-size:13px;}
 
 
 /* Footer */
