@@ -85,8 +85,15 @@ def choose_politician():
 
 @app.route('/lobbying')
 def lobbying():
-	return render_template('choose_politician.html')
+	top_10 = ie.entities.top_n_lobbyist_bundlers(limit=10)
+	return render_template('lobbying.html', top_10=top_10)
 
+
+@app.route('/organizations_industries')
+def organizations():
+	top_orgs = ie.entities.top_n_organizations(limit=15)
+	top_industries = ie.entities.top_n_industries(limit=15)
+	return render_template('organizations_industries.html', top_orgs=top_orgs, top_industries=top_industries)
 
 
 if __name__ == '__main__':
