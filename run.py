@@ -104,7 +104,13 @@ def organizations():
 	
 @app.route('/super_pacs')
 def super_pacs():
+	# TODO - get dynamic data for 2014
 	return render_template('super_pacs.html')
+	
+	
+@app.route('/take_action')
+def take_action():
+	return render_template('take_action.html')
 
 
 if __name__ == '__main__':
